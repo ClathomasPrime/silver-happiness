@@ -1,0 +1,38 @@
+var _user$project$Stuff$either = F3(
+	function (f, g, u) {
+		var _p0 = u;
+		if (_p0.ctor === 'Left') {
+			return f(_p0._0);
+		} else {
+			return g(_p0._0);
+		}
+	});
+var _user$project$Stuff$Right = function (a) {
+	return {ctor: 'Right', _0: a};
+};
+var _user$project$Stuff$Left = function (a) {
+	return {ctor: 'Left', _0: a};
+};
+var _user$project$Stuff$bindEither = F2(
+	function (u, f) {
+		var _p1 = u;
+		if (_p1.ctor === 'Left') {
+			return _user$project$Stuff$Left(_p1._0);
+		} else {
+			return f(_p1._0);
+		}
+	});
+var _user$project$Stuff$apEither = F2(
+	function (u, v) {
+		var _p2 = {ctor: '_Tuple2', _0: u, _1: v};
+		if (_p2._0.ctor === 'Left') {
+			return _user$project$Stuff$Left(_p2._0._0);
+		} else {
+			if (_p2._1.ctor === 'Left') {
+				return _user$project$Stuff$Left(_p2._1._0);
+			} else {
+				return _user$project$Stuff$Right(
+					_p2._0._0(_p2._1._0));
+			}
+		}
+	});
